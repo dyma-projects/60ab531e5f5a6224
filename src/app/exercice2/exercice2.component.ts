@@ -1,16 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from "@angular/core";
 
 @Component({
-  selector: 'app-exercice2',
-  templateUrl: './exercice2.component.html',
-  styleUrls: ['./exercice2.component.css']
+  selector: "app-exercice2",
+  templateUrl: "./exercice2.component.html",
+  styleUrls: ["./exercice2.component.css"],
 })
 export class Exercice2Component implements OnInit {
   public valeur: string;
+  @ViewChild("mytext") public elem: ElementRef<HTMLInputElement>;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
+  copy() {
+    this.valeur = this.elem.nativeElement.value;
   }
 
+  ngOnInit() {}
 }
